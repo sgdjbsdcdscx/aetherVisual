@@ -46,7 +46,6 @@
         radial-gradient(circle at 50% 88%, rgba(34, 211, 238, 0.09), transparent 50%);
     }
 
-    /* Subtle starfield / particle canvas */
     #sky-canvas {
       position: fixed;
       inset: 0;
@@ -64,7 +63,6 @@
       padding: 18px 16px 64px;
     }
 
-    /* Top Nav */
     .topbar {
       display: flex;
       align-items: center;
@@ -125,7 +123,6 @@
       background: rgba(56, 189, 248, 0.12);
     }
 
-    /* Hero Section */
     .hero {
       text-align: center;
       padding: 18px 8px 30px;
@@ -178,7 +175,6 @@
       margin: 0 auto 26px;
     }
 
-    /* Primary CTA Buttons */
     .cta-group {
       display: flex;
       flex-direction: column;
@@ -233,7 +229,6 @@
       border-color: var(--border-glow);
     }
 
-    /* Interactive HUD Preview Card */
     .preview-card {
       margin-top: 32px;
       background: var(--bg-card);
@@ -338,7 +333,6 @@
       color: var(--text-dim);
     }
 
-    /* Section Titles */
     .section-title {
       font-size: 1.25rem;
       font-weight: 700;
@@ -356,7 +350,6 @@
       background: linear-gradient(90deg, var(--border-subtle), transparent);
     }
 
-    /* Features Grid */
     .features-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -411,7 +404,6 @@
       color: var(--text-muted);
     }
 
-    /* Specs / Install Box */
     .install-box {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
@@ -444,35 +436,11 @@
       font-weight: 600;
     }
 
-    /* Footer */
     footer {
       margin-top: 40px;
       text-align: center;
       font-size: 0.8rem;
       color: var(--text-dim);
-    }
-
-    /* Toast Notification */
-    .toast {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%) translateY(90px);
-      background: #0f172a;
-      border: 1px solid var(--accent-sky);
-      color: #f8fafc;
-      padding: 12px 18px;
-      border-radius: 12px;
-      font-size: 0.85rem;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
-      z-index: 50;
-      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
-      max-width: 92vw;
-      text-align: center;
-    }
-
-    .toast.show {
-      transform: translateX(-50%) translateY(0);
     }
   </style>
 </head>
@@ -480,7 +448,6 @@
   <canvas id="sky-canvas"></canvas>
 
   <div class="container">
-    <!-- Top Navigation -->
     <header class="topbar">
       <div class="brand">
         <div class="brand-orb">AV</div>
@@ -491,7 +458,6 @@
       </div>
     </header>
 
-    <!-- Hero -->
     <section class="hero">
       <div class="pill-badge">
         <span class="pill-dot"></span>
@@ -505,7 +471,7 @@
       </p>
 
       <div class="cta-group">
-        <a href="https://github.com/sgdjbsdcdscx/aetherVisual/releases/download/v1.0.0/aether-visual-1.21.4.jar" download class="btn-primary">
+        <a href="https://github.com/sgdjbsdcdscx/aetherVisual/releases/download/v1.0.0/aether-visual-0.4.0.jar" download class="btn-primary">
           <span>⬇</span>
           <span data-ru="Скачать .JAR (1.21.4)" data-en="Download .JAR (1.21.4)">Скачать .JAR (1.21.4)</span>
         </a>
@@ -514,7 +480,6 @@
         </a>
       </div>
 
-      <!-- Interactive HUD Preview -->
       <div class="preview-card">
         <div class="preview-header">
           <div class="window-dots"><span></span><span></span><span></span></div>
@@ -551,7 +516,6 @@
       </div>
     </section>
 
-    <!-- Features -->
     <h2 class="section-title" data-ru="Возможности мода" data-en="Mod Features">Возможности мода</h2>
     <div class="features-grid">
       <div class="feature-card">
@@ -584,7 +548,6 @@
       </div>
     </div>
 
-    <!-- Requirements & Info -->
     <h2 class="section-title" id="specs" data-ru="Технические детали" data-en="Technical Details">Технические детали</h2>
     <div class="install-box">
       <div class="spec-row">
@@ -626,7 +589,6 @@
       btn.classList.toggle('off');
     }
 
-    // Lightweight floating particles background
     const canvas = document.getElementById('sky-canvas');
     const ctx = canvas.getContext('2d');
     let width, height, particles;
