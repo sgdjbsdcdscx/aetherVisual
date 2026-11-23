@@ -505,7 +505,7 @@
       </p>
 
       <div class="cta-group">
-        <a href="#download" class="btn-primary" onclick="handleDownload(event)">
+        <a href="https://github.com/sgdjbsdcdscx/aetherVisual/releases/download/v1.0.0/aether-visual-1.21.4.jar" download class="btn-primary">
           <span>⬇</span>
           <span data-ru="Скачать .JAR (1.21.4)" data-en="Download .JAR (1.21.4)">Скачать .JAR (1.21.4)</span>
         </a>
@@ -585,7 +585,7 @@
     </div>
 
     <!-- Requirements & Info -->
-    <h2 class="section-title" id="download" data-ru="Технические детали" data-en="Technical Details">Технические детали</h2>
+    <h2 class="section-title" id="specs" data-ru="Технические детали" data-en="Technical Details">Технические детали</h2>
     <div class="install-box">
       <div class="spec-row">
         <span class="spec-key" data-ru="Версия игры" data-en="Minecraft Version">Версия игры</span>
@@ -610,8 +610,6 @@
     </footer>
   </div>
 
-  <div class="toast" id="toast"></div>
-
   <script>
     let currentLang = 'ru';
 
@@ -626,21 +624,6 @@
       const widget = document.getElementById(id);
       widget.classList.toggle('disabled');
       btn.classList.toggle('off');
-    }
-
-    function showToast(msg) {
-      const toast = document.getElementById('toast');
-      toast.textContent = msg;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 3400);
-    }
-
-    function handleDownload(e) {
-      e.preventDefault();
-      const msg = currentLang === 'ru'
-        ? 'Добавь .jar файл в GitHub Releases, и эта кнопка сразу начнёт его скачивать!'
-        : 'Upload your .jar file to GitHub Releases and link it here for instant download!';
-      showToast(msg);
     }
 
     // Lightweight floating particles background
@@ -667,4 +650,21 @@
       for (const p of particles) {
         p.x += p.vx;
         p.y += p.vy;
-        if (
+        if (p.y < -10) p.y = height + 10;
+        if (p.x < -10) p.x = width + 10;
+        if (p.x > width + 10) p.x = -10;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(125, 211, 252, ${p.alpha})`;
+        ctx.fill();
+      }
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', initParticles);
+    initParticles();
+    animate();
+  </script>
+</body>
+</html>
